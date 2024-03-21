@@ -1,0 +1,91 @@
+指定数据宽度和小数位数，用%m.nf
+3种变形：
+%mf
+%m.nf
+%.nf
+
+3种变形：
+%mf
+m 表示指定输出数据的域宽（所占的列数）。我们来看一个例子：
+
+#include<stdio.h>
+int main()
+{
+	char x = 'a';
+	printf("%2c\n",x);
+	printf("%3d\n",x);
+	return 0;
+}
+1
+2
+3
+4
+5
+6
+7
+8
+
+从以上结果可知，m为正---->输出数据在区域右对齐。
+而反之，m为负---->输出数据在区域左对齐。如下：
+
+#include<stdio.h>
+int main()
+{
+	char x = 'a';
+	printf("%-2c\n",x);
+	printf("%-3d\n",x);
+	return 0;
+}
+1
+2
+3
+4
+5
+6
+7
+8
+
+m正负的规律也适用于下面两种变形。
+
+%m.nf
+m 指定数据宽度
+n 指定小数位数,(如果把小数部分指定为0，则不仅不输出小数，而且小数点也不输出，所以不要轻易指定小数的位数为0)
+例子如下：
+
+#include<stdio.h>
+int main()
+{
+float a;
+a = 10000/3.0;
+printf("%25.15f\n",a);
+return 0;
+}
+
+当把a换成double型，例子如下：
+
+#include<stdio.h>
+int main()
+{
+double a;
+a = 10000/3.0;
+printf("%25.15f\n",a);
+return 0;
+}
+1
+2
+3
+4
+5
+6
+7
+8
+
+得到的数据精度不同是因为：float型数据只能保证6~7个有效数字；double型数据只能保证15–16个有效数字
+
+%.nf
+总长度不限，小数点后面保留n位
+————————————————
+
+                            版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+                        
+原文链接：https://blog.csdn.net/sinat_41703501/article/details/95982752
